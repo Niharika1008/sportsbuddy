@@ -8,13 +8,13 @@ import { getFirestore } from "firebase/firestore"; // <--- IMPORT THIS
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCadXY4Vx0L9Z2ROUQhmPtpNG8aHtQnhjk",
-    authDomain: "sport-buddy-daee1.firebaseapp.com",
-    projectId: "sport-buddy-daee1",
-    storageBucket: "sport-buddy-daee1.firebasestorage.app",
-    messagingSenderId: "724058928795",
-    appId: "1:724058928795:web:e7d7bf3b348c471424f83e",
-    measurementId: "G-CLEXBVPQ5R" // Keep if you use analytics
+    const firebaseConfig = {
+apiKey: "YOUR_API_KEY",
+authDomain: "YOUR_AUTH_DOMAIN",
+projectId: "YOUR_PROJECT_ID",
+storageBucket: "YOUR_STORAGE_BUCKET",
+messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+appId: "YOUR_APP_ID"
 };
 
 // Initialize Firebase app
