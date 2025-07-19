@@ -31,7 +31,9 @@
 ### ⚛ Frontend
 - **React.js**
 - **React Router DOM**
+- **HTML**
 - **CSS**
+- **Vite.js**
 
 ### ☁ Backend & Database
 - **Firebase**
