@@ -153,4 +153,3 @@ Feel free to reach out via GitHub with suggestions or questions.
 
 ---
 
-> 📝 _Note: Replace the `homepage_screenshot.png` with an actual screenshot of your app inside `public/assets` for the badge to show._
