@@ -8,8 +8,8 @@
 :root {
     --color-primary: #1a1a1a; /* Dark background */
     --color-secondary: #0d0d0d; /* Even darker for cards/sections */
-    --color-gold-primary: #FFD700; /* Gold for accents/headings */
-    --color-gold-secondary: #FFB300; /* Slightly darker gold */
+    --color-gold-primary: #293eb6c2; /* Gold for accents/headings */
+    --color-gold-secondary: #083b7e; /* Slightly darker gold */
     --color-white: #ffffff;
     --color-light-gray: #cccccc;
     --color-dark-gray: #2c2c2c; /* Used for forms/sections */
@@ -22,12 +22,13 @@
 /* Base body styles, if not fully managed by App.css for specific page overrides */
 /* If App.css handles overall body, you might remove this. Keeping for now as a fallback. */
 body {
-    /* font-family: 'Arial', sans-serif; */ /* Already in App.css */
-    /* margin: 0; */ /* Already in App.css */
-    /* padding: 0; */ /* Already in App.css */
-    /* background-color: var(--color-primary); */ /* Managed by App.css's --color-background-dark */
-    /* color: var(--color-text-on-dark); */ /* Already in App.css */
-    /* line-height: 1.6; */ /* Already in App.css */
+
+    font-family: 'Arial', sans-serif; 
+    margin: 0;  /* Already in App.css */
+    padding: 0; /* Already in App.css */
+    background-color: var(--color-primary);  /* Managed by App.css's --color-background-dark */
+    color: var(--color-text-on-dark); /* Already in App.css */
+    line-height: 1.6;  /* Already in App.css */
 }
 
 
@@ -37,9 +38,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- REMOVED DUPLICATE HEADER/NAVBAR STYLES FROM HERE --- */
-/* .header, .navbar, .logo, .nav-menu, .nav-item, .nav-link, .btn-logout, .hamburger */
-/* These are now managed in App.css */
+
 
 
 /* Basic Button Styles (These are general and can stay, but ensure App.css doesn't duplicate them for primary/secondary/danger) */
@@ -56,13 +55,13 @@ body {
 }
 
 .btn-primary {
-    background-color: var(--color-gold-primary);
+    background-color: var(--color-blue-primary);
     color: var(--color-secondary);
     border: none;
 }
 
 .btn-primary:hover {
-    background-color: var(--color-gold-secondary);
+    background-color: var(--color-blue-secondary);
 }
 
 .btn-secondary {
@@ -84,7 +83,7 @@ body {
 }
 
 .btn-danger:hover {
-    background-color: #c82333; /* Darker red */
+    background-color: #c82333; 
 }
 
 .btn-success {
@@ -97,11 +96,11 @@ body {
     background-color: #218838; /* Darker green */
 }
 
-/* Form element styles (common) - These are also in App.css, consider consolidating */
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="datetime-local"], /* Added for event date/time */
+input[type="datetime-local"], 
 select,
 textarea {
     width: 100%;
@@ -134,13 +133,13 @@ textarea::placeholder {
 }
 
 
-/* Footer Styles - These are also in App.css, consider consolidating */
+
 .footer {
     background-color: var(--color-secondary);
     color: var(--color-light-gray);
     padding: 20px 0;
     text-align: center;
-    border-top: 1px solid var(--color-gold-secondary);
+    border-top: 1px solid var(--color-blue-secondary);
     font-size: 0.9em;
     margin-top: 40px; /* Space above footer */
 }
@@ -150,7 +149,7 @@ textarea::placeholder {
 }
 
 .footer a {
-    color: var(--color-gold-primary);
+    color: var(--color-blue-primary);
     text-decoration: none;
 }
 
@@ -201,12 +200,12 @@ section {
 section h2, section h3 {
     margin-bottom: 40px;
     font-size: 2em;
-    color: var(--color-gold-primary); /* Consistent heading color */
+    color: var(--color-blue-primary); /* Consistent heading color */
 }
 
 .hero-section {
     padding: 100px 20px;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/sports_bg.jpg') no-repeat center center/cover; /* Ensure /sports_bg.jpg is directly in public/ */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/all_sports_icon.png') no-repeat center center/cover; /* Ensure /sports_bg.jpg is directly in public/ */
     color: var(--color-white);
     min-height: calc(100vh - 80px - 60px); /* Adjust based on header (approx 80px) and footer (approx 60px) height */
     display: flex; /* Use flexbox to center content vertically */
@@ -239,7 +238,7 @@ section h2, section h3 {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     width: 120px; /* Fixed width for each icon item */
     text-align: center;
-    border: 1px solid rgba(255, 215, 0, 0.3); /* Subtle gold border */
+    border: 1px solid rgba(28, 6, 150, 0.3); /* Subtle gold border */
 }
 
 .hero-sport-icon-item:hover {
@@ -256,7 +255,7 @@ section h2, section h3 {
     border-radius: 50%; /* Circular icons */
     background-color: rgba(255, 255, 255, 0.15); /* Slightly more prominent background for icons */
     padding: 10px;
-    box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.2); /* Inner glow effect */
+    box-shadow: inset 0 0 10px rgba(8, 75, 151, 0.2); /* Inner glow effect */
 }
 
 .hero-sport-icon-item p {
@@ -341,8 +340,8 @@ section h2, section h3 {
     text-decoration: underline;
 }
 
-/* Data Display Pages (Events, Find Buddy, My Buddy Events, User Management) */
-.events-page, .find-buddy-page, .my-buddy-events-page, .user-management-page { /* Added .user-management-page */
+/* Data Display Pages (Events, User Management) */
+.events-page, .user-management-page { /* Added .user-management-page */
     text-align: center;
 }
 
@@ -554,9 +553,7 @@ textarea::placeholder {
 }
 
 /* --- User Management Page Specific Styles --- */
-.user-management-page .users-grid {
-    /* Inherits from .grid-container */
-}
+
 
 .user-management-page .user-card-wrapper {
     display: flex;
@@ -565,7 +562,7 @@ textarea::placeholder {
     align-items: center; /* Center content horizontally */
 }
 
-.user-management-page .user-card-wrapper .buddy-card {
+.user-management-page .user-card-wrapper  {
     width: 100%; /* Ensure card takes full width of its grid column */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Slightly different shadow for user cards */
 }
@@ -673,7 +670,7 @@ textarea::placeholder {
 }
 
 .event-card h4 {
-    color: #ffcc00; /* Yellow for titles */
+    color: #2a06ac; /* Yellow for titles */
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -741,11 +738,11 @@ textarea::placeholder {
 }
 
 .btn-edit-event {
-    background-color: #ffc107; /* Yellow/Orange for Edit */
+    background-color: #075eff; /* Yellow/Orange for Edit */
     color: #333; /* Dark text for contrast */
 }
 .btn-edit-event:hover {
-    background-color: #e0a800;
+    background-color: #3100e0;
 }
 
 .btn-delete-event {

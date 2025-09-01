@@ -12,8 +12,8 @@ body {
 
 /* Color Variables */
 :root {
-    --color-gold-primary: #FFD700; /* Bright gold for accents */
-    --color-gold-secondary: #DAA520; /* Darker gold */
+    --color-gold-primary: #1d149b; /* Bright gold for accents */
+    --color-gold-secondary: #0906d4; /* Darker gold */
     --color-dark-gray: #1a1a1a; /* Main background for cards/forms */
     --color-dark-gray-light: #2c2c2c; /* Slightly lighter for inputs */
     --color-background-dark: #0f0f0f; /* Overall page background */

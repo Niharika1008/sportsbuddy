@@ -10,32 +10,35 @@ const RegisterPage = ({ showNotification }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [role, setRole] = useState('user'); // default role
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            await updateProfile(userCredential.user, { displayName: username });
+            const user = userCredential.user;
 
-            // Add user data to Firestore [cite: 17]
-            await setDoc(doc(db, 'users', userCredential.user.uid), {
+            await updateProfile(user, { displayName: username });
+
+            await setDoc(doc(db, 'users', user.uid), {
                 username: username,
                 email: email,
+                role: role, // Store role
                 createdAt: serverTimestamp(),
-                // Add default fields like sportsInterest, abilityLevel, location etc.
                 sportsInterest: [],
                 abilityLevel: '',
                 location: ''
             });
 
             showNotification('Registered successfully! Please login.', 'success');
-            console.log('User registered and profile created:', userCredential.user.uid); // Logging 
-            navigate('/login'); // Redirect to login page
+            console.log('User registered with role:', role);
+            navigate('/login');
         } catch (error) {
-            console.error('Registration error:', error); // Logging 
+            console.error('Registration error:', error);
             showNotification(`Registration failed: ${error.message}`, 'error');
         } finally {
             setLoading(false);
@@ -68,6 +71,15 @@ const RegisterPage = ({ showNotification }) => {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
+                    <select
+                        value={role}
+                        onChange={(e) => setRole(e.target.value)}
+                        required
+                    >
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
                     <button type="submit" className="btn btn-primary" disabled={loading}>
                         {loading ? 'Registering...' : 'Register'}
                     </button>

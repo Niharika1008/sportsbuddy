@@ -101,7 +101,7 @@
 }
 
 .btn-primary:hover {
-    background-color: #ffd700; /* Lighter gold on hover */
+    background-color: #006eff; /* Lighter gold on hover */
 }
 
 .btn-success {
@@ -161,27 +161,6 @@
     cursor: default; /* Change cursor to default */
 }
 
-/* Buddy Card specific styles (if different from general card) */
-.buddy-card {
-    min-height: 220px; /* Ensures consistent height for buddy cards */
-}
-
-/* --- Buddy Actions (Buttons Container) - Specific for Buddy Card --- */
-.buddy-actions {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center; /* Center the buttons for Buddy Cards */
-    align-items: center;
-}
-
-.buddy-actions .btn {
-    flex: 1; /* Allow buttons to grow */
-    max-width: 150px; /* Max width for buddy buttons */
-}
-
-
 /* --- Grid Container for Cards --- */
 .grid-container {
     display: grid;
@@ -207,7 +186,7 @@
 }
 
 .btn-auth:hover {
-    background-color: #ffd700 !important;
+    background-color: #003cff !important;
     color: var(--color-dark-gray) !important;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(255, 215, 0, 0.4);

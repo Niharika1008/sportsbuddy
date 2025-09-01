@@ -6,8 +6,8 @@
     --color-dark-gray: #1A1A1A;
     --color-light-gray: #E0E0E0;
     --color-white: #FFFFFF;
-    --color-gold-primary: #FFD700; /* Main Gold */
-    --color-gold-dark: #DAA520;   /* Darker Gold for hover/accents */
+    --color-gold-primary: #103bb3; /* Main Gold */
+    --color-gold-dark: #0c19ce;   /* Darker Gold for hover/accents */
     --color-text-on-dark: #C0C0C0; /* For secondary text on dark backgrounds */
 }
 
@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-gold-dark);
+    background-color: var(--color-blue-dark);
     transform: translateY(-2px);
 }
 
@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary:hover {
-    background-color: #333; /* Slightly lighter dark-gray on hover */
+    background-color: #333; 
     transform: translateY(-2px);
 }
 
@@ -104,7 +104,7 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: var(--color-gold-primary);
-    box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 0 8px rgba(0, 110, 255, 0.4);
 }
 
 /* Utility classes for layout */

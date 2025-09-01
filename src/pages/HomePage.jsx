@@ -7,18 +7,14 @@ import { onAuthStateChanged } from 'firebase/auth';
 import EventCard from '../components/EventCard';
 import './PageStyles.css';
 
-// Define sports icons and their corresponding local image paths in public/assets
+
 const sportsIcons = [
-    { name: 'All', icon: '/assets/all_sports_icon.png' }, // Make sure you have a generic 'all_sports_icon.png' in public/assets
+    { name: 'All', icon: '/assets/all_sports_icon.png' }, 
     { name: 'Cricket', icon: '/assets/cricket.png' },
     { name: 'Football', icon: '/assets/football.png' },
-    { name: 'Volleyball', icon: '/assets/vollyball.png' }, // Double-check this filename
+    { name: 'Volleyball', icon: '/assets/vollyball.png' },
     { name: 'Tennis', icon: '/assets/tennis.png' },
-    { name: 'BGMI', icon: '/assets/bgmi.jpeg' },
     { name: 'Cycling', icon: '/assets/cycling.png' },
-    { name: 'E-Sports', icon: '/assets/e-sport.png' },
-    { name: 'Horse Riding', icon: '/assets/equestrian.png' },
-    { name: 'Hockey', icon: '/assets/hockey.png' },
     { name: 'Running', icon: '/assets/training.png' },
 ];
 
@@ -32,7 +28,7 @@ const HomePage = ({ showNotification }) => {
     const navigate = useNavigate();
 
     // Create a ref for the "Upcoming Events" section
-    const upcomingEventsSectionRef = useRef(null); // New ref for the section
+    const upcomingeventsectionRef = useRef(null); // New ref for the section
 
     // Listen for auth state changes to get current user
     useEffect(() => {
@@ -47,7 +43,7 @@ const HomePage = ({ showNotification }) => {
         setLoadingEvents(true);
         setErrorEvents(null);
         try {
-            const eventsCollectionRef = collection(db, 'sportsEvents');
+            const eventsCollectionRef = collection(db, 'events');
             const q = query(eventsCollectionRef, orderBy('eventTime', 'asc'));
             const querySnapshot = await getDocs(q);
             const eventsData = querySnapshot.docs.map(doc => {
@@ -91,8 +87,8 @@ const HomePage = ({ showNotification }) => {
     const handleSportIconClick = (sportName) => {
         setSelectedSport(sportName);
         // Scroll to the "Upcoming Events" section
-        if (upcomingEventsSectionRef.current) {
-            upcomingEventsSectionRef.current.scrollIntoView({
+        if (upcomingeventsectionRef.current) {
+            upcomingeventsectionRef.current.scrollIntoView({
                 behavior: 'smooth', // Smooth scrolling
                 block: 'start'      // Aligns the top of the element with the top of the viewport
             });
@@ -110,16 +106,16 @@ const HomePage = ({ showNotification }) => {
             showNotification('Event not found.', 'error');
             return;
         }
-        if (currentUser.email !== 'admin@sportsbuddy.com' && currentUser.uid !== eventToDelete.creatorId) {
+        if (currentUser.email !== 'admin7@sportsbuddy.com' && currentUser.uid !== eventToDelete.creatorId) {
             showNotification('Permission denied. Only admin or event creator can delete this event.', 'error');
             return;
         }
 
         if (window.confirm("Are you sure you want to delete this event?")) {
             try {
-                await deleteDoc(doc(db, 'sportsEvents', eventId));
+                await deleteDoc(doc(db, 'events', eventId));
                 if (showNotification) showNotification('Event deleted successfully!', 'success');
-                fetchAllEvents(); // Re-fetch to update UI
+                fetchAllEvents(); 
             } catch (error) {
                 console.error("Error deleting event:", error);
                 if (showNotification) showNotification(`Failed to delete event: ${error.message}`, 'error');
@@ -132,19 +128,19 @@ const HomePage = ({ showNotification }) => {
             showNotification('You must be logged in to complete an event.', 'error');
             return;
         }
-        if (currentUser.email !== 'admin@sportsbuddy.com' && currentUser.uid !== creatorId) {
+        if (currentUser.email !== 'admin7@sportsbuddy.com' && currentUser.uid !== creatorId) {
             showNotification('Permission denied. Only admin or event creator can mark as complete.', 'error');
             return;
         }
 
         if (window.confirm("Are you sure you want to mark this event as completed?")) {
             try {
-                await updateDoc(doc(db, 'sportsEvents', eventId), {
+                await updateDoc(doc(db, 'events', eventId), {
                     status: 'completed',
                     completedAt: new Date(),
                 });
                 if (showNotification) showNotification('Event marked as completed!', 'success');
-                fetchAllEvents(); // Re-fetch to update status
+                fetchAllEvents(); 
             } catch (error) {
                 console.error("Error marking event as complete:", error);
                 if (showNotification) showNotification(`Failed to mark event as complete: ${error.message}`, 'error');
@@ -157,7 +153,7 @@ const HomePage = ({ showNotification }) => {
             showNotification('You must be logged in to edit an event.', 'error');
             return;
         }
-        if (currentUser.email !== 'admin@sportsbuddy.com' && currentUser.uid !== creatorId) {
+        if (currentUser.email !== 'admin7@sportsbuddy.com' && currentUser.uid !== creatorId) {
             showNotification('Permission denied. Only admin or event creator can edit events.', 'error');
             return;
         }
@@ -171,7 +167,7 @@ const HomePage = ({ showNotification }) => {
         }
 
         try {
-            const eventDocRef = doc(db, 'sportsEvents', eventId);
+            const eventDocRef = doc(db, 'events', eventId);
             if (hasJoined) {
                 await updateDoc(eventDocRef, {
                     joinedUsers: arrayRemove(currentUser.uid)
@@ -213,14 +209,14 @@ const HomePage = ({ showNotification }) => {
                         ))}
                     </div>
                     <div className="hero-buttons">
-                        <Link to="/find-buddy" className="btn btn-primary">Find a Buddy</Link>
+                        
                         <Link to="/events" className="btn btn-secondary">Explore All Events</Link>
                     </div>
                 </div>
             </section>
 
             {/* Filtered Events Section - Add ref here */}
-            <section className="filtered-events-section container" ref={upcomingEventsSectionRef}> {/* Ref added here */}
+            <section className="filtered-events-section container" ref={upcomingeventsectionRef}> {/* Ref added here */}
                 {selectedSport && selectedSport !== 'All' ? (
                     <h3>Upcoming {selectedSport} Events</h3>
                 ) : (

@@ -68,7 +68,7 @@
 }
 
 .admin-form button:hover {
-    background-color: #ffd700; /* Lighter gold on hover */
+    background-color: #001aff; /* Lighter gold on hover */
     transform: translateY(-1px);
 }
 
