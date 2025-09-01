@@ -1,7 +1,5 @@
 # 🏅 Sports Buddy
 
-### 🔗 [Live Demo]()
-
 
 **Sports Buddy** is a dynamic web application designed to connect sports enthusiasts. Whether you're looking for a casual game, a training partner, or exciting local sports events, **Sports Buddy** helps you discover, join, and organize sporting events effortlessly.
 
@@ -39,14 +37,12 @@
 
 ---
 
-## ⚙️ Setup & Installation
-
 
 
 ### 🧩 1. Clone the Repository
 
 ```
-    git clone https://github.com/Niharika1008/Sports_Buddy_App.git
+    git clone https://github.com/Niharika1008/sportsbuddy.git
     cd Sports_Buddy_App
 ```
 
